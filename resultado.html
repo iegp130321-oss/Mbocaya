@@ -6,17 +6,18 @@
   <title>Tapadita - Verificación Oficial</title>
   <style>
     :root {
-      --bg1: #0b1023;
-      --bg2: #17233d;
+      --bg1: #0b1220;
+      --bg2: #1b2f4a;
       --gold-1: #f7d774;
-      --gold-2: #f3b43b;
-      --gold-3: #fff3bf;
-      --card: rgba(255, 255, 255, 0.96);
-      --text: #111827;
-      --muted: #4b5563;
-      --line: rgba(17, 24, 39, 0.08);
+      --gold-2: #edb73f;
+      --gold-3: #fff1b1;
+      --ink: #0f172a;
+      --muted: #475569;
+      --card: rgba(255,255,255,0.96);
+      --line: rgba(15,23,42,0.08);
       --button: #1d4ed8;
-      --button-hover: #173bb6;
+      --button-hover: #163db1;
+      --success: #1f9d62;
     }
 
     * { box-sizing: border-box; }
@@ -27,145 +28,179 @@
       height: 100%;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(247, 215, 116, 0.22), transparent 30%),
-        linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
-      color: var(--text);
+        radial-gradient(circle at top, rgba(247, 215, 116, 0.22), transparent 22%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--ink);
     }
 
     body {
       display: grid;
       place-items: center;
-      padding: 24px;
+      padding: 28px;
     }
 
-    .card {
-      width: min(92vw, 720px);
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
-      overflow: hidden;
+    .certificate {
       position: relative;
+      width: min(92vw, 760px);
+      background: var(--card);
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 55px rgba(0,0,0,0.22);
+      overflow: hidden;
     }
 
-    .card::before {
+    .certificate::before,
+    .certificate::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(247, 215, 116, 0.12), rgba(255,255,255,0));
+      inset: 18px;
+      border: 2px solid rgba(247, 215, 116, 0.55);
+      border-radius: 18px;
       pointer-events: none;
     }
 
-    .header {
-      background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
-      padding: 22px 28px 18px;
-      border-bottom: 1px solid rgba(17, 24, 39, 0.08);
-      position: relative;
-      z-index: 1;
+    .certificate::after {
+      inset: 31px;
+      border-color: rgba(15, 23, 42, 0.08);
     }
 
-    .badge {
-      display: inline-block;
-      background: rgba(17, 24, 39, 0.88);
-      color: #fff7d6;
+    .topbar {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+      padding: 18px 28px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
       font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      padding: 8px 12px;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+
+    .status {
+      background: rgba(15, 23, 42, 0.9);
+      color: #fff3c2;
       border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .content {
-      padding: 32px 28px 26px;
       position: relative;
       z-index: 1;
+      padding: 34px 28px 26px;
+      text-align: center;
+    }
+
+    .seal {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 20px;
+      border: 4px solid rgba(237, 183, 63, 0.9);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle, rgba(247, 215, 116, 0.18), rgba(247, 215, 116, 0.02));
+      color: var(--success);
+      font-size: 2rem;
+      font-weight: 900;
+      box-shadow: inset 0 0 0 6px rgba(237,183,63,0.12);
     }
 
     h1 {
-      margin: 0 0 20px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      color: #111827;
-      text-align: center;
+      margin: 0 0 22px;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      color: #0f172a;
     }
 
     .prize-box {
-      background: linear-gradient(180deg, #fffdf8, #fffaf0);
-      border: 1px solid rgba(243, 180, 59, 0.4);
-      border-radius: 18px;
-      padding: 20px 18px;
-      text-align: center;
-      margin-bottom: 26px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+      background: linear-gradient(180deg, #fffefb, #fff8e6);
+      border: 1px solid rgba(237,183,63,0.45);
+      border-radius: 20px;
+      padding: 18px 16px;
+      margin: 0 auto 22px;
+      max-width: 480px;
     }
 
     .prize-label {
-      display: block;
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       letter-spacing: 0.12em;
-      color: var(--muted);
       text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 800;
+      display: block;
       margin-bottom: 10px;
-      font-weight: 700;
     }
 
     .prize-value {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
       font-weight: 900;
       color: #111827;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.06em;
     }
 
     .meta {
       display: grid;
-      gap: 10px;
-      margin: 0 0 28px;
-      text-align: center;
-      font-size: 1rem;
+      gap: 8px;
+      margin: 0 auto 26px;
+      max-width: 460px;
+      font-size: 1.02rem;
       color: var(--muted);
     }
 
-    .meta strong {
-      color: var(--text);
-    }
+    .meta b { color: var(--ink); }
 
-    .buttons {
+    .actions {
       display: flex;
       justify-content: center;
-      margin-top: 10px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 22px;
+    .btn {
+      appearance: none;
+      border: none;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--button), var(--button-hover));
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
+      padding: 12px 20px;
+      font-weight: 800;
       letter-spacing: 0.02em;
-      box-shadow: 0 10px 20px rgba(29, 78, 216, 0.25);
+      text-decoration: none;
+      cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .back-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 24px rgba(29, 78, 216, 0.35);
+    .btn:hover { transform: translateY(-1px); }
+
+    .primary {
+      background: linear-gradient(135deg, var(--button), var(--button-hover));
+      color: white;
+      box-shadow: 0 12px 22px rgba(29, 78, 216, 0.24);
     }
 
-    @media (max-width: 520px) {
-      .header, .content {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
+    .secondary {
+      background: rgba(15, 23, 42, 0.05);
+      color: var(--ink);
+      border: 1px solid rgba(15,23,42,0.12);
+    }
 
-      .badge {
-        letter-spacing: 0.08em;
-      }
+    @media (max-width: 560px) {
+      .topbar, .content { padding-left: 18px; padding-right: 18px; }
+      .status { width: 100%; text-align: center; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
@@ -180,11 +215,14 @@
     const nombre = qs.get('nombre') || '';
 
     document.body.innerHTML = `
-      <div class="card">
-        <div class="header">
-          <span class="badge">Verificación oficial</span>
+      <div class="certificate">
+        <div class="topbar">
+          <div class="brand">Tapadita</div>
+          <div class="status">Verificación oficial</div>
         </div>
+
         <div class="content">
+          <div class="seal">✓</div>
           <h1>${ganador ? 'GANADOR ' + ganador : 'VERIFICADO'} ${nombre}</h1>
 
           <div class="prize-box">
@@ -193,12 +231,13 @@
           </div>
 
           <div class="meta">
-            <div><strong>Fecha:</strong> ${fecha || 'Sin fecha registrada'}</div>
-            <div><strong>ID:</strong> ${id || 'Sin identificación'}</div>
+            <div><b>Fecha:</b> ${fecha || 'Sin fecha registrada'}</div>
+            <div><b>ID de comprobante:</b> ${id || 'Sin identificación'}</div>
           </div>
 
-          <div class="buttons">
-            <a class="back-btn" href="/Mbocaya/">Volver</a>
+          <div class="actions">
+            <a class="btn primary" href="/Mbocaya/">Volver</a>
+            <button class="btn secondary" type="button" onclick="window.print()">Imprimir comprobante</button>
           </div>
         </div>
       </div>
